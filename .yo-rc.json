@@ -44,7 +44,9 @@
     "clientTheme": "none",
     "clientThemeVariant": "",
     "reactive": false,
-    "enableGradleEnterprise": false
+    "enableGradleEnterprise": false,
+    "entities": ["AddressType"],
+    "lastLiquibaseTimestamp": 1637157255000
   },
   "git-provider": "GitHub",
   "git-company": "ptma549",
