@@ -1,0 +1,5 @@
+
+entity AddressType {
+	name String
+	position Integer
+}
