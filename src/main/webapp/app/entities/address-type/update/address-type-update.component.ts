@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
@@ -18,7 +18,7 @@ export class AddressTypeUpdateComponent implements OnInit {
   editForm = this.fb.group({
     id: [],
     name: [],
-    position: [],
+    position: [null, [Validators.min(0)]],
   });
 
   constructor(protected addressTypeService: AddressTypeService, protected activatedRoute: ActivatedRoute, protected fb: FormBuilder) {}

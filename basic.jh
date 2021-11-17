@@ -1,5 +1,5 @@
 
 entity AddressType {
 	name String
-	position Integer
+	position Integer min(0)
 }

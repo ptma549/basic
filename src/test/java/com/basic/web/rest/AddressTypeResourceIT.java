@@ -32,8 +32,8 @@ class AddressTypeResourceIT {
     private static final String DEFAULT_NAME = "AAAAAAAAAA";
     private static final String UPDATED_NAME = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_POSITION = 1;
-    private static final Integer UPDATED_POSITION = 2;
+    private static final Integer DEFAULT_POSITION = 0;
+    private static final Integer UPDATED_POSITION = 1;
 
     private static final String ENTITY_API_URL = "/api/address-types";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";

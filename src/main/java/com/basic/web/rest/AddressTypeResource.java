@@ -8,6 +8,8 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -46,7 +48,7 @@ public class AddressTypeResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/address-types")
-    public ResponseEntity<AddressType> createAddressType(@RequestBody AddressType addressType) throws URISyntaxException {
+    public ResponseEntity<AddressType> createAddressType(@Valid @RequestBody AddressType addressType) throws URISyntaxException {
         log.debug("REST request to save AddressType : {}", addressType);
         if (addressType.getId() != null) {
             throw new BadRequestAlertException("A new addressType cannot already have an ID", ENTITY_NAME, "idexists");
@@ -71,7 +73,7 @@ public class AddressTypeResource {
     @PutMapping("/address-types/{id}")
     public ResponseEntity<AddressType> updateAddressType(
         @PathVariable(value = "id", required = false) final Long id,
-        @RequestBody AddressType addressType
+        @Valid @RequestBody AddressType addressType
     ) throws URISyntaxException {
         log.debug("REST request to update AddressType : {}, {}", id, addressType);
         if (addressType.getId() == null) {
@@ -106,7 +108,7 @@ public class AddressTypeResource {
     @PatchMapping(value = "/address-types/{id}", consumes = { "application/json", "application/merge-patch+json" })
     public ResponseEntity<AddressType> partialUpdateAddressType(
         @PathVariable(value = "id", required = false) final Long id,
-        @RequestBody AddressType addressType
+        @NotNull @RequestBody AddressType addressType
     ) throws URISyntaxException {
         log.debug("REST request to partial update AddressType partially : {}, {}", id, addressType);
         if (addressType.getId() == null) {
