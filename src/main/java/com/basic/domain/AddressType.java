@@ -2,6 +2,7 @@ package com.basic.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -24,6 +25,7 @@ public class AddressType implements Serializable {
     @Column(name = "name")
     private String name;
 
+    @Min(value = 0)
     @Column(name = "position")
     private Integer position;
 

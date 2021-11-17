@@ -19,6 +19,12 @@
         <div class="form-group">
           <label class="form-control-label" for="field_position">Position</label>
           <input type="number" class="form-control" name="position" id="field_position" data-cy="position" formControlName="position" />
+          <div *ngIf="editForm.get('position')!.invalid && (editForm.get('position')!.dirty || editForm.get('position')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('position')?.errors?.min"> This field should be at least 0. </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('position')?.errors?.number">
+              This field should be a number.
+            </small>
+          </div>
         </div>
       </div>
 
